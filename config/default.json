@@ -1,0 +1,32 @@
+{
+  // Customer module configs
+  "Site": {
+    "dbConfig": {
+      "host": "10.0.0.2",
+      "port": 3306,
+      "dbName": "test",
+      "username": "test",
+      "password": "123456"
+    },
+    "sql":{
+        "select_interest_activity":"select hr_interest_activity.*,hr_borrow.reverify_time from hr_interest_activity left join hr_borrow using(borrow_nid) where plan_status=0",
+        "select_tender_borrow_nid":"select * from hr_borrow_tender where borrow_nid in (%s)"
+    },
+    "table":{
+        "prefix":"",
+        "interest_activity":"interest_activity",
+        "interest_pay":"interest_pay",
+        "interest_receive":"interest_receive"
+    },
+    "tableColumn":{
+        "interest_activity":["borrow_nid","activity_id","status","interest_rate","interest_type","interest_period","create_date","create_user","plan_status"],
+        "interest_pay":["borrow_nid","interest_account","interest_account_wait","interest_account_yes","interest_plan_date","pay_status","interest_period","create_user","create_date"],
+        "interest_receive":["borrow_nid","tender_nid","tender_userid","tender_account","interest_account","interest_account_yes","interest_account_wait","interest_plan_date","receive_status","create_date","create_user","interest_period"]
+    },
+    "credit": {
+      "initialLimit": 100,
+      // Set low for development
+      "initialDays": 1
+    }
+  }
+}
