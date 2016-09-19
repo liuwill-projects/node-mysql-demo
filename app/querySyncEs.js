@@ -18,7 +18,7 @@ const using = Promise.using;
 Promise.promisifyAll(require('mysql/lib/Connection').prototype);
 Promise.promisifyAll(require('mysql/lib/Pool').prototype);
 
-var pool = mysql.createPool({
+let pool = mysql.createPool({
     host: dbConfig.host,
     user: dbConfig.username,
     password: dbConfig.password,
@@ -27,7 +27,7 @@ var pool = mysql.createPool({
     connectionLimit: 10
 });
 
-var rd = readline.createInterface({
+let rd = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
