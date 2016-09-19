@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app/interestPlanBuild.js",
+    "sync": "node app/querySync.js",
     "test": "mocha"
   },
   "engines": {
